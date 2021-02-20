@@ -33,11 +33,15 @@ class Getgit extends Component {
       // If we get to this part of `render`, then the user is loaded
       const data = this.state.data;
       return (
-        <div>
+        <div class="m-1">
+          <div class="row border border-white">
+            <div class="col border-right border-white">Nombre</div>
+            <div class="col">Fecha</div>
+          </div>
           {data.map(val => (
-            <div id={val.commit.author.name}>
-                <div>{val.commit.author.name}</div>
-                <div>{val.commit.author.date}</div>
+            <div class="row border border-white" id={val.commit.author.name}>
+                <div class="col border-right border-white">{val.commit.author.name}</div>
+                <div class="col">{val.commit.author.date}</div>
             </div>
           ))}
         </div>
