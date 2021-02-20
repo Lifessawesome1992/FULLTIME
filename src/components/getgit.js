@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
+import Conf from './../config';
 
 class Getgit extends Component {
 
@@ -9,9 +10,9 @@ class Getgit extends Component {
     }
 
     componentDidMount(){
-      fetch(`https://api.github.com/repos/Lifessawesome1992/FULLTIME/commits`,
+      fetch(Conf.API_URL + Conf.REPOSITORY.User + '/' + Conf.REPOSITORY.Name + '/commits',
       {
-        'LifessAwesome1992': '1c542c6c1e19498948f85d89e708d7f15b650449'
+        [Conf.REPOSITORY.Name]: Conf.REPOSITORY.Auth
       })
         .then(response => response.json())
         .then(
@@ -25,12 +26,9 @@ class Getgit extends Component {
   
 
   render() {
-      // If the state doesn't have a user key, it means the AJAX didn't complete yet. Simply render a LOADING indicator.
       if (!this.state.data) {
           return (<div>LOADING...</div>);
       }
-
-      // If we get to this part of `render`, then the user is loaded
       const data = this.state.data;
       return (
         <div class="m-1">

@@ -1,0 +1,16 @@
+Para el DEPLOYMENT de esta aplicación:
+
+- Traer el repositorio de la aplicación, hay numerosas formas de hacerlo, aquí nombraremos una para windows:
+  1) Instalar "Git for Windows" desde https://git-scm.com/download/win
+  2) traer el repositorio desde la linea de comando de GIT recientemente instalado: 
+     "git clone https://github.com/Lifessawesome1992/FULLTIME"
+- instalar NPM (Node Package Manager) desde  https://www.npmjs.com/get-npm
+- parándose dentro de la carpeta del repositorio (donde uno lo haya copiado), generaremos el build de la aplicación:
+   "npm run build"
+- posteriormente, instalaremos serve:
+    "npm install -g serve"
+- finalmente, publicamos en la máquina:
+    "serve -s build"
+- nos debiera salir un texto de éxito y la URL en la cual se está sirviendo la aplicación.
+
+P.D: los parámetros de configuración (Usuario, TokenAuth y Repositorio a mirar) están en el archivo config.js en la carpeta /src
