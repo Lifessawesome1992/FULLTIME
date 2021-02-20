@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Octokit } from "@octokit/core";
+import Moment from 'moment';
 
 class Getgit extends Component {
 
@@ -34,14 +34,16 @@ class Getgit extends Component {
       const data = this.state.data;
       return (
         <div class="m-1">
-          <div class="row border border-white">
-            <div class="col border-right border-white">Nombre</div>
-            <div class="col">Fecha</div>
+          <div class="row border border-white font-weight-bold">
+            <div class="col-3 border-right border-white">Nombre</div>
+            <div class="col-3 border-right border-white">Fecha</div>
+            <div class="col-6">Mensaje</div>
           </div>
           {data.map(val => (
             <div class="row border border-white" id={val.commit.author.name}>
-                <div class="col border-right border-white">{val.commit.author.name}</div>
-                <div class="col">{val.commit.author.date}</div>
+                <div class="col-3 border-right border-white">{val.commit.author.name}</div>
+                <div class="col-3 border-right border-white">{Moment(val.commit.author.date).format('DD/MM/yyyy HH:mm:ss')}</div>
+                <div class="col-6 ">{val.commit.message}</div>
             </div>
           ))}
         </div>
